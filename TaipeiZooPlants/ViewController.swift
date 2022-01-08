@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import ProgressHUD
+import Kingfisher
 
 class ViewController: UIViewController {
 
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     
     @IBOutlet
     weak var tableHeaderLabel: UILabel!
+    
+    let viewModel = ViewModel()
     
     var barHeight: CGFloat {
         20 +
@@ -54,6 +58,9 @@ class ViewController: UIViewController {
         navBar.scrollEdgeAppearance = standardAppearance
         navBar.compactAppearance = compactAppearance
         navBar.compactScrollEdgeAppearance = compactAppearance
+        
+        viewModel.outputDelegate = self
+        viewModel.reload()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,14 +74,45 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ViewModelOutputDelegate {
+    
+    func reloadTable() { tableView.reloadData() }
+    
+    func countLabelText(_ text: String?) {
+        tableHeaderLabel.text = text
+    }
+    
+    func hudStatus(_ status: ViewModel.HudStatus) {
+        switch status {
+        case let .message(message, isError):
+            if isError {
+                ProgressHUD.showError(message)
+            } else {
+                ProgressHUD.showSucceed(message)
+            }
+        case .loading:
+            ProgressHUD.show()
+        case .off:
+            ProgressHUD.dismiss()
+        }
+    }
+}
+
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        50
+        viewModel.plants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PlantCell
+        let plant = viewModel.plants[indexPath.row]
+        
+        cell.nameLabel.text = plant.name
+        cell.locationLabel.text = plant.location
+        cell.featureLabel.text = plant.feature
+        cell.plantImageView.kf.setImage(with: URL(string: plant.pic))
+        print(plant.pic)
         return cell
     }
 }
@@ -87,6 +125,10 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 42 + safeAreaTop
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.willDisplayIndex(indexPath.row)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

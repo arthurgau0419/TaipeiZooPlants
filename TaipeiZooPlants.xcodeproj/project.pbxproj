@@ -20,6 +20,8 @@
 		0287A51927896B8A008DC2DA /* PlantsProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287A51827896B8A008DC2DA /* PlantsProviderType.swift */; };
 		0287A51B27896BA3008DC2DA /* OpenDataPlantsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287A51A27896BA3008DC2DA /* OpenDataPlantsProvider.swift */; };
 		0287A51D27898171008DC2DA /* MockPlantsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287A51C27898170008DC2DA /* MockPlantsProvider.swift */; };
+		0287A51F2789879E008DC2DA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287A51E2789879E008DC2DA /* ViewModel.swift */; };
+		0287A521278998A5008DC2DA /* PlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287A520278998A5008DC2DA /* PlantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		0287A51827896B8A008DC2DA /* PlantsProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsProviderType.swift; sourceTree = "<group>"; };
 		0287A51A27896BA3008DC2DA /* OpenDataPlantsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDataPlantsProvider.swift; sourceTree = "<group>"; };
 		0287A51C27898170008DC2DA /* MockPlantsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlantsProvider.swift; sourceTree = "<group>"; };
+		0287A51E2789879E008DC2DA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0287A520278998A5008DC2DA /* PlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				0287A4EB27887092008DC2DA /* AppDelegate.swift */,
 				0287A4ED27887092008DC2DA /* SceneDelegate.swift */,
 				0287A4EF27887092008DC2DA /* ViewController.swift */,
+				0287A51E2789879E008DC2DA /* ViewModel.swift */,
+				0287A520278998A5008DC2DA /* PlantCell.swift */,
 				0287A4F127887092008DC2DA /* Main.storyboard */,
 				0287A4F427887094008DC2DA /* Assets.xcassets */,
 				0287A4F627887094008DC2DA /* LaunchScreen.storyboard */,
@@ -232,11 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0287A4F027887092008DC2DA /* ViewController.swift in Sources */,
+				0287A521278998A5008DC2DA /* PlantCell.swift in Sources */,
 				0287A51B27896BA3008DC2DA /* OpenDataPlantsProvider.swift in Sources */,
 				0287A51D27898171008DC2DA /* MockPlantsProvider.swift in Sources */,
 				0287A4EC27887092008DC2DA /* AppDelegate.swift in Sources */,
 				0287A51927896B8A008DC2DA /* PlantsProviderType.swift in Sources */,
 				0287A4EE27887092008DC2DA /* SceneDelegate.swift in Sources */,
+				0287A51F2789879E008DC2DA /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
