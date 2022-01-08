@@ -16,7 +16,13 @@ class ViewController: UIViewController {
     weak var barExtendView: UIView!
     
     @IBOutlet
+    weak var barExtendStackView: UIView!
+    
+    @IBOutlet
     weak var tableHeaderView: UIView!
+    
+    @IBOutlet
+    weak var tableHeaderLabel: UILabel!
     
     var barHeight: CGFloat {
         20 +
@@ -81,5 +87,18 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 42 + safeAreaTop
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let tableView = scrollView as? UITableView else { return }
+        let ratio: CGFloat
+        if tableView.contentOffset.y < 0 {
+            ratio = 0
+        } else {
+            ratio = min(tableView.contentOffset.y, tableView.sectionHeaderTopPadding) /  tableView.sectionHeaderTopPadding
+        }
+        tableHeaderLabel.alpha = ratio
+        navigationItem.titleView?.alpha = 1 - ratio
+        barExtendStackView.alpha = 1 - ratio
     }
 }

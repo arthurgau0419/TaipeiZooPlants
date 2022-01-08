@@ -151,7 +151,9 @@
                         </connections>
                     </navigationItem>
                     <connections>
+                        <outlet property="barExtendStackView" destination="9qV-JY-WzA" id="nZ0-Te-RdJ"/>
                         <outlet property="barExtendView" destination="0dV-ag-Qod" id="DSS-1j-FOF"/>
+                        <outlet property="tableHeaderLabel" destination="Rq8-0q-gbh" id="FVh-gr-Tga"/>
                         <outlet property="tableHeaderView" destination="7kA-lR-G09" id="g7x-V6-3rf"/>
                         <outlet property="tableView" destination="erc-0S-BDK" id="FRt-f8-8zI"/>
                     </connections>
@@ -161,7 +163,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-0q-gbh">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-0q-gbh">
                             <rect key="frame" x="97" y="20" width="46.5" height="42"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
